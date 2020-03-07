@@ -72,7 +72,7 @@
 
         (function($, sr) {
             // debouncing function from John Hann
-            // http://unscriptable.com/index.php/2009/03/20/debouncing-javascript-methods/
+            // https://unscriptable.com/index.php/2009/03/20/debouncing-javascript-methods/
             var debounce = function(func, threshold, execAsap) {
                 var timeout;
 
@@ -338,7 +338,7 @@
             function videoParser(card) {
                 $(card).outerFind('[data-bg-video]').each(function() {
                     var videoURL = $(this).attr('data-bg-video');
-                    var parsedUrl = videoURL.match(/(http:\/\/|https:\/\/|)?(player.|www.)?(vimeo\.com|youtu(be\.com|\.be|be\.googleapis\.com))\/(video\/|embed\/|watch\?v=|v\/)?([A-Za-z0-9._%-]*)(&\S+)?/);
+                    var parsedUrl = videoURL.match(/(https:\/\/|https:\/\/|)?(player.|www.)?(vimeo\.com|youtu(be\.com|\.be|be\.googleapis\.com))\/(video\/|embed\/|watch\?v=|v\/)?([A-Za-z0-9._%-]*)(&\S+)?/);
 
                     var $img = $('<div class="mbr-background-video-preview">')
                         .hide()
@@ -352,7 +352,7 @@
                     if (parsedUrl && (/youtube/g.test(parsedUrl[3]) || /vimeo/g.test(parsedUrl[3]))) {
                         // youtube
                         if (parsedUrl && /youtube/g.test(parsedUrl[3])) {
-                            var previewURL = 'http' + ('https:' === location.protocol ? 's' : '') + ':';
+                            var previewURL = 'https' + ('https:' === location.protocol ? 's' : '') + ':';
                             previewURL += '//img.youtube.com/vi/' + parsedUrl[6] + '/maxresdefault.jpg';
 
                             $('<img>').on('load', function() {
